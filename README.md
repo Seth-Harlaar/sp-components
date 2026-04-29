@@ -80,20 +80,37 @@ document.querySelector('sp-theme').name = 'default'
 | `default` | `themes/default.css` (light, built-in) |
 | `dark` | `themes/dark.css` |
 
-### Adding a theme
+### Overriding tokens in your project
 
-1. Create `themes/your-theme.css`
-2. Override any variables from `themes/default.css`:
+Load `sp-theme` first, then override any variables in your own stylesheet — your values win because they load after the theme files.
+
+**Global overrides** (apply to all themes):
 
 ```css
-[data-theme="your-theme"] {
-  --color-primary: #e11d48;
-  --color-bg:      #fdf2f8;
-  /* only override what changes */
+/* your-project.css */
+:root {
+  --color-primary:       #e11d48;
+  --color-primary-hover: #be123c;
+  --font-family-base:    Georgia, serif;
 }
 ```
 
-3. Use it: `<sp-theme name="your-theme">`
+**Theme-scoped overrides** (only apply when a specific theme is active):
+
+```css
+[data-theme="dark"] {
+  --color-primary: #fb7185; /* lighter pink for dark bg */
+}
+```
+
+**Component-specific overrides** via `::part()`:
+
+```css
+sp-button::part(button) {
+  border-radius: 9999px; /* pill shape for this project */
+  letter-spacing: 0.05em;
+}
+```
 
 ### Using CSS variables in components
 
@@ -118,7 +135,7 @@ static styles = css`
 `
 ```
 
-### Future: `::part()` for deeper customization
+### `::part()` for deeper customization
 
 Components expose their internals via `part` attributes, enabling consumers to write CSS that pierces Shadow DOM without modifying the component:
 
@@ -139,57 +156,9 @@ my-button::part(button) {
 
 Every component you write should expose meaningful `part` attributes on its key elements.
 
-## Adding a Component
-
-1. Create `components/your-component-name.js`
-2. Use this template:
-
-```js
-import { LitElement, html, css } from 'https://esm.sh/lit@3'
-
-class YourComponentName extends LitElement {
-  static styles = css`
-    :host { display: block; }
-
-    /* Use tokens — never hardcode colors, spacing, or radii */
-    .root {
-      color: var(--color-text);
-      background: var(--color-bg);
-      padding: var(--space-4);
-      border-radius: var(--radius-md);
-    }
-  `
-
-  static properties = {
-    // define reactive properties here
-  }
-
-  render() {
-    /* Add part="" attributes to elements consumers may want to style */
-    return html`<div class="root" part="root"><slot></slot></div>`
-  }
-}
-
-customElements.define('your-component-name', YourComponentName)
-```
-
-3. Commit and push — the component is live on the CDN immediately.
-4. Update `docs/index.html` to list the new component.
-
-## Versioning
-
-- `@latest` — always the newest commit on the default branch
-- `@v1.0.0` — pin to a specific git tag for stability in production
-
-To create a version tag: `git tag v1.0.0 && git push --tags`
-
 ## How It Works
 
 - **jsDelivr** serves files directly from this GitHub repo — no npm publish needed
 - **esm.sh** resolves the `lit` package as a proper ES module for the browser
 - The browser deduplicates the Lit import: even if 10 components are on one page, Lit loads once and is shared across all of them
 - **CSS custom properties** cascade through Shadow DOM boundaries, making them the right primitive for theming web components
-
-## Docs
-
-Enable GitHub Pages in repo settings (source: `docs/` folder on `main`) to publish the component catalog at `https://Seth-Harlaar.github.io/sp-components/`.

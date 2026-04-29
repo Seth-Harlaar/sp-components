@@ -6,7 +6,7 @@
   CSS custom properties cascade through Shadow DOM, so swapping these at a
   parent element level automatically themes all descendant components.
 
-  Future: components expose internals via part="" attributes, enabling
+  Components expose internals via part="" attributes, enabling
   ::part() selectors in external stylesheets to go beyond variable-based theming.
 */
 
