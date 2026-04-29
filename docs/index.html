@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Component Library</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+    h1 { font-size: 1.75rem; margin-bottom: 0.25rem; }
+    p.subtitle { color: #555; margin-top: 0; }
+    h2 { font-size: 1.1rem; margin-top: 2.5rem; border-bottom: 1px solid #e5e5e5; padding-bottom: 0.4rem; }
+    pre {
+      background: #f5f5f5;
+      border: 1px solid #e5e5e5;
+      border-radius: 6px;
+      padding: 1rem 1.25rem;
+      overflow-x: auto;
+      font-size: 0.875rem;
+    }
+    code { font-family: ui-monospace, monospace; }
+    .components-list { list-style: none; padding: 0; }
+    .components-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.95rem;
+    }
+    .empty { color: #999; font-style: italic; }
+  </style>
+</head>
+<body>
+  <h1>Component Library</h1>
+  <p class="subtitle">Custom HTML components built with <a href="https://lit.dev">Lit</a>, served via CDN.</p>
+
+  <h2>Usage</h2>
+  <p>Import any component directly in your HTML or JS — no npm install required:</p>
+  <pre><code>&lt;!-- HTML --&gt;
+&lt;script type="module"&gt;
+  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/component-name.js'
+&lt;/script&gt;</code></pre>
+
+  <pre><code>// JS / ES module
+import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/component-name.js'</code></pre>
+
+  <p>Replace <code>{username}</code>, <code>{repo}</code>, and <code>component-name</code> with your GitHub username, repo name, and the component filename.</p>
+
+  <h2>Available Components</h2>
+  <ul class="components-list">
+    <li class="empty">No components yet — check back soon.</li>
+  </ul>
+
+  <h2>Adding a Component</h2>
+  <ol>
+    <li>Create a <code>.js</code> file in <code>components/</code></li>
+    <li>Import Lit at the top: <code>import { LitElement, html, css } from 'https://esm.sh/lit@3'</code></li>
+    <li>Define and register your element</li>
+    <li>Commit and push — it's immediately available on the CDN</li>
+    <li>Add it to the list above</li>
+  </ol>
+</body>
+</html>
