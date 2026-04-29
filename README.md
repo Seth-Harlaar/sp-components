@@ -12,6 +12,43 @@ Custom HTML web components built with [Lit](https://lit.dev), hosted on GitHub a
 
 Replace `{username}` and `{repo}` with your GitHub username and repo name. Components self-register as custom elements, so the tag is available immediately after the import.
 
+## Components
+
+| Component | File | Description |
+|-----------|------|-------------|
+| `sp-theme` | `components/sp-theme.js` | Loads theme CSS and sets `data-theme`. Attr: `name` |
+| `sp-card` | `components/sp-card.js` | Content card. Attrs: `interactive`, `accent` |
+| `sp-button` | `components/sp-button.js` | Button. Attrs: `variant` (default/primary/outline/ghost), `size` (sm/md/lg), `full`, `disabled` |
+| `sp-tag` | `components/sp-tag.js` | Pill label. Attr: `color` (primary/success/warning/error/info) |
+| `sp-nav` | `components/sp-nav.js` | Header nav. Slots: `brand`, default, `actions`. Attr: `sticky` |
+
+### Example
+
+```html
+<script type="module">
+  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-theme.js'
+  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-nav.js'
+  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-card.js'
+  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-button.js'
+  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-tag.js'
+</script>
+
+<sp-theme name="dark">
+  <sp-nav sticky>
+    <span slot="brand">My Site</span>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <sp-button slot="actions" variant="primary">Sign in</sp-button>
+  </sp-nav>
+
+  <sp-card interactive accent>
+    <sp-tag color="primary">New</sp-tag>
+    <p>Card content goes here.</p>
+    <sp-button variant="outline">Read more</sp-button>
+  </sp-card>
+</sp-theme>
+```
+
 ## Theming
 
 Theming is built on CSS custom properties (variables) that cascade through Shadow DOM. The `<sp-theme>` component loads the token and theme CSS, and sets a `data-theme` attribute that scopes all variable overrides.
