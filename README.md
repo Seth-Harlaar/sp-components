@@ -6,11 +6,11 @@ Custom HTML web components built with [Lit](https://lit.dev), hosted on GitHub a
 
 ```html
 <script type="module">
-  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/component-name.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/component-name.js'
 </script>
 ```
 
-Replace `{username}` and `{repo}` with your GitHub username and repo name. Components self-register as custom elements, so the tag is available immediately after the import.
+Replace `Seth-Harlaar` and `sp-components` with your GitHub username and repo name. Components self-register as custom elements, so the tag is available immediately after the import.
 
 ## Components
 
@@ -26,11 +26,11 @@ Replace `{username}` and `{repo}` with your GitHub username and repo name. Compo
 
 ```html
 <script type="module">
-  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-theme.js'
-  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-nav.js'
-  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-card.js'
-  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-button.js'
-  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-tag.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-theme.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-nav.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-card.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-button.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-tag.js'
 </script>
 
 <sp-theme name="dark">
@@ -57,8 +57,8 @@ Theming is built on CSS custom properties (variables) that cascade through Shado
 
 ```html
 <script type="module">
-  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/sp-theme.js'
-  import 'https://cdn.jsdelivr.net/gh/{username}/{repo}@latest/components/my-button.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-theme.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/my-button.js'
 </script>
 
 <sp-theme name="dark">
@@ -192,4 +192,4 @@ To create a version tag: `git tag v1.0.0 && git push --tags`
 
 ## Docs
 
-Enable GitHub Pages in repo settings (source: `docs/` folder on `main`) to publish the component catalog at `https://{username}.github.io/{repo}/`.
+Enable GitHub Pages in repo settings (source: `docs/` folder on `main`) to publish the component catalog at `https://Seth-Harlaar.github.io/sp-components/`.
