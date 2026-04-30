@@ -32,6 +32,8 @@
       font-size: 0.95rem;
     }
     .empty { color: #999; font-style: italic; }
+    .components-list a { color: inherit; text-decoration: none; }
+    .components-list a:hover code { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -50,11 +52,11 @@ import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components
 
   <h2>Available Components</h2>
   <ul class="components-list">
-    <li><code>sp-theme</code> — Loads theme CSS and sets <code>data-theme</code>. Attr: <code>name</code> (default, dark, …)</li>
-    <li><code>sp-card</code> — Content card with optional hover lift and accent bar. Attrs: <code>interactive</code>, <code>accent</code></li>
-    <li><code>sp-button</code> — Button with variants and sizes. Attrs: <code>variant</code> (default/primary/outline/ghost), <code>size</code> (sm/md/lg), <code>full</code>, <code>disabled</code></li>
-    <li><code>sp-tag</code> — Pill-shaped label. Attr: <code>color</code> (primary/success/warning/error/info)</li>
-    <li><code>sp-nav</code> — Header nav bar with brand/links/actions slots. Attr: <code>sticky</code></li>
+    <li><a href="sp-button.html"><code>sp-button</code></a> — Button with variants and sizes</li>
+    <li><a href="sp-card.html"><code>sp-card</code></a> — Content card with optional hover lift and accent bar</li>
+    <li><a href="sp-nav.html"><code>sp-nav</code></a> — Header nav bar with brand, links, and actions slots</li>
+    <li><a href="sp-tag.html"><code>sp-tag</code></a> — Pill-shaped label with semantic color variants</li>
+    <li><a href="sp-theme.html"><code>sp-theme</code></a> — Theme loader and CSS custom property scope</li>
   </ul>
 
 </body>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sp-theme — Component Library</title>
+  <style>
+    body { margin: 0; background: #fafafa; }
+
+    /*
+      sp-theme injects CSS into document.head, but those stylesheets
+      don't pierce sp-doc's shadow DOM. For the dark theme preview,
+      we apply dark tokens directly on the preview container via ::part()
+      so they cascade into all nested sp-* components.
+    */
+    sp-doc::part(theme-dark-preview) {
+      --color-primary:          #3b82f6;
+      --color-primary-hover:    #60a5fa;
+      --color-primary-active:   #93c5fd;
+      --color-primary-subtle:   #1e3a5f;
+      --color-primary-contrast: #ffffff;
+      --color-secondary:          #a78bfa;
+      --color-secondary-hover:    #c4b5fd;
+      --color-secondary-subtle:   #2e1065;
+      --color-success:          #22c55e;
+      --color-success-subtle:   #052e16;
+      --color-warning:          #f59e0b;
+      --color-warning-subtle:   #451a03;
+      --color-error:            #f87171;
+      --color-error-subtle:     #450a0a;
+      --color-info:             #38bdf8;
+      --color-info-subtle:      #082f49;
+      --color-bg:             #0f172a;
+      --color-bg-subtle:      #1e293b;
+      --color-bg-raised:      #1e293b;
+      --color-bg-overlay:     #334155;
+      --color-border:         #334155;
+      --color-border-strong:  #475569;
+      --color-text:           #f1f5f9;
+      --color-text-subtle:    #94a3b8;
+      --color-text-disabled:  #475569;
+      background: #0f172a;
+      color: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+  <sp-doc id="doc"></sp-doc>
+  <script type="module">
+    import '../components/sp-theme.js'
+    import '../components/sp-card.js'
+    import '../components/sp-tag.js'
+    import '../components/sp-button.js'
+    import './components/sp-doc.js'
+    import data from './data/components.js'
+    document.querySelector('#doc').data = data['sp-theme']
+  </script>
+</body>
+</html>
