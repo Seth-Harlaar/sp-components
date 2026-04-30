@@ -116,7 +116,7 @@ class SpNav extends LitElement {
   _handleThemeChange(e) {
     const themeEl = document.querySelector('sp-theme')
     if (!themeEl) return
-    themeEl.name  = e.target.value
+    themeEl.setTheme(e.target.value)
     this._current = e.target.value
   }
 
