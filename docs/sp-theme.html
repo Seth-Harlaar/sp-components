@@ -7,12 +7,6 @@
   <style>
     body { margin: 0; background: #fafafa; }
 
-    /*
-      sp-theme injects CSS into document.head, but those stylesheets
-      don't pierce sp-doc's shadow DOM. For the dark theme preview,
-      we apply dark tokens directly on the preview container via ::part()
-      so they cascade into all nested sp-* components.
-    */
     sp-doc::part(theme-dark-preview) {
       --color-primary:          #3b82f6;
       --color-primary-hover:    #60a5fa;
@@ -47,10 +41,10 @@
 <body>
   <sp-doc id="doc"></sp-doc>
   <script type="module">
-    import '../components/sp-theme.js'
-    import '../components/sp-card.js'
-    import '../components/sp-tag.js'
-    import '../components/sp-button.js'
+    import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@master/components/sp-theme.js'
+    import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@master/components/sp-card.js'
+    import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@master/components/sp-tag.js'
+    import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@master/components/sp-button.js'
     import './components/sp-doc.js'
     import data from './data/components.js'
     document.querySelector('#doc').data = data['sp-theme']
