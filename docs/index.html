@@ -27,13 +27,23 @@
     code { font-family: ui-monospace, monospace; }
     .components-list { list-style: none; padding: 0; }
     .components-list li {
-      padding: 0.6rem 0;
       border-bottom: 1px solid #f0f0f0;
       font-size: 0.95rem;
     }
+    .components-list li:first-child { border-top: 1px solid #f0f0f0; }
     .empty { color: #999; font-style: italic; }
-    .components-list a { color: inherit; text-decoration: none; }
-    .components-list a:hover code { text-decoration: underline; }
+    .components-list a {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      color: inherit;
+      text-decoration: none;
+      padding: 0.6rem 0.5rem;
+      margin: 0 -0.5rem;
+      border-radius: 4px;
+    }
+    .components-list a:hover { background: #f5f5f5; }
+    .components-list a .desc { color: #555; }
   </style>
 </head>
 <body>
@@ -51,13 +61,17 @@
 import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/component-name.js'</code></pre>
 
   <h2>Available Components</h2>
-  <ul class="components-list">
-    <li><a href="sp-button.html"><code>sp-button</code></a> — Button with variants and sizes</li>
-    <li><a href="sp-card.html"><code>sp-card</code></a> — Content card with optional hover lift and accent bar</li>
-    <li><a href="sp-nav.html"><code>sp-nav</code></a> — Header nav bar with brand, links, and actions slots</li>
-    <li><a href="sp-tag.html"><code>sp-tag</code></a> — Pill-shaped label with semantic color variants</li>
-    <li><a href="sp-theme.html"><code>sp-theme</code></a> — Theme loader and CSS custom property scope</li>
-  </ul>
+  <ul class="components-list" id="component-list"></ul>
+
+  <script type="module">
+    import data from './data/components.js';
+    const list = document.getElementById('component-list');
+    for (const { name, description } of Object.values(data)) {
+      const li = document.createElement('li');
+      li.innerHTML = `<a href="${name}.html"><code>${name}</code><span class="desc">— ${description}</span></a>`;
+      list.appendChild(li);
+    }
+  </script>
 
 </body>
 </html>
