@@ -2,13 +2,13 @@ export default {
 
   'sp-button': {
     name: 'sp-button',
-    description: 'A styled button with multiple visual variants, sizes, and states. Self-registers as a custom element — drop it anywhere after importing.',
+    description: 'A styled button with multiple visual variants, sizes, and states. Self-registers as a custom element - drop it anywhere after importing.',
     import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-button.js',
     attributes: [
       {
         name: 'variant',
         type: 'String',
-        default: '—',
+        default: '-',
         values: 'default | primary | outline | ghost | danger | dashed',
         description: 'Visual style of the button.'
       },
@@ -23,14 +23,14 @@ export default {
         name: 'full',
         type: 'Boolean',
         default: 'false',
-        values: '—',
+        values: '-',
         description: 'Stretches the button to fill its container width.'
       },
       {
         name: 'disabled',
         type: 'Boolean',
         default: 'false',
-        values: '—',
+        values: '-',
         description: 'Disables the button and reduces its opacity. Forwarded to the inner <button>.'
       },
       {
@@ -84,26 +84,26 @@ export default {
         name: 'interactive',
         type: 'Boolean',
         default: 'false',
-        values: '—',
+        values: '-',
         description: 'Adds a pointer cursor and a translateY lift + shadow on hover.'
       },
       {
         name: 'accent',
         type: 'Boolean',
         default: 'false',
-        values: '—',
+        values: '-',
         description: 'Renders a 3px color bar across the top of the card using --color-primary (or --sp-card-accent).'
       },
       {
         name: 'raised',
         type: 'Boolean',
         default: 'false',
-        values: '—',
+        values: '-',
         description: 'Applies a medium drop-shadow to lift the card off the page.'
       }
     ],
     slots: [
-      { name: '(default)', description: 'Any content — headings, paragraphs, buttons, tags, or nested components.' }
+      { name: '(default)', description: 'Any content - headings, paragraphs, buttons, tags, or nested components.' }
     ],
     parts: [
       { name: 'card', description: 'The outer card <div>. Target with sp-card::part(card) to change border-radius, padding, or background.' }
@@ -142,14 +142,14 @@ export default {
         name: 'sticky',
         type: 'Boolean',
         default: 'false',
-        values: '—',
+        values: '-',
         description: 'Sets position: sticky; top: 0 and switches the background to a semi-transparent blur.'
       }
     ],
     slots: [
-      { name: 'brand', description: 'The leftmost zone — logo, site name, or any anchor element.' },
+      { name: 'brand', description: 'The leftmost zone - logo, site name, or any anchor element.' },
       { name: '(default)', description: 'Navigation links rendered in the center zone.' },
-      { name: 'actions', description: 'The rightmost zone — buttons, icon links, or any action controls.' }
+      { name: 'actions', description: 'The rightmost zone - buttons, icon links, or any action controls.' }
     ],
     parts: [
       { name: 'nav', description: 'The outer <nav> element.' },
@@ -185,7 +185,7 @@ export default {
       {
         name: 'color',
         type: 'String',
-        default: '—',
+        default: '-',
         values: 'primary | success | warning | error | info',
         description: 'Applies a semantic color variant. Omit for the neutral default style.'
       }
@@ -218,14 +218,14 @@ export default {
         name: 'open',
         type: 'Boolean',
         default: 'false',
-        values: '—',
+        values: '-',
         description: 'Shows the modal when present. Also controlled via show() and close() methods.'
       },
       {
         name: 'heading',
         type: 'String',
-        default: '—',
-        values: '—',
+        default: '-',
+        values: '-',
         description: 'Text displayed in the modal header. Rendered in uppercase monospace style.'
       }
     ],
@@ -264,7 +264,7 @@ export default {
         name: 'active',
         type: 'Number',
         default: '0',
-        values: '—',
+        values: '-',
         description: 'Index of the currently active tab panel (zero-based).'
       }
     ],
@@ -303,14 +303,14 @@ export default {
         name: 'visible',
         type: 'Boolean',
         default: 'false',
-        values: '—',
-        description: 'Reflects the visible state. Set automatically by show() — do not set manually.'
+        values: '-',
+        description: 'Reflects the visible state. Set automatically by show() - do not set manually.'
       },
       {
         name: 'message',
         type: 'String',
-        default: '—',
-        values: '—',
+        default: '-',
+        values: '-',
         description: 'The text displayed inside the toast. Set automatically by show().'
       }
     ],
@@ -322,7 +322,7 @@ export default {
       {
         label: 'Trigger a toast',
         code: `<sp-toast id="toast"></sp-toast>
-<sp-button onclick="document.querySelector('#toast').show('Saved!', 2500)">
+<sp-button onclick="this.getRootNode().querySelector('#toast').show('Saved!', 2500)">
   Show Toast
 </sp-button>`
       }
@@ -331,7 +331,7 @@ export default {
 
   'sp-theme': {
     name: 'sp-theme',
-    description: 'Loads theme CSS tokens into document.head and sets the data-theme attribute on itself. Wrap any content that should be themed — CSS custom properties cascade through Shadow DOM into all nested components.',
+    description: 'Loads theme CSS tokens into document.head and sets the data-theme attribute on itself. Wrap any content that should be themed - CSS custom properties cascade through Shadow DOM into all nested components.',
     import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-theme.js',
     attributes: [
       {

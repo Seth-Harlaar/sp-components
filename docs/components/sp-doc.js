@@ -218,7 +218,7 @@ class SpDoc extends LitElement {
         <td><code>${a.name}</code></td>
         <td><code>${a.type}</code></td>
         <td><code>${a.default}</code></td>
-        <td class="muted">${a.values || '—'}</td>
+        <td class="muted">${a.values || '-'}</td>
         <td>${a.description}</td>
       </tr>
     `)
