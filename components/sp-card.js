@@ -38,11 +38,16 @@ class SpCard extends LitElement {
       border-color: var(--color-border-strong);
       box-shadow: var(--shadow-md);
     }
+
+    :host([raised]) .card {
+      box-shadow: var(--shadow-md, 0 4px 20px rgba(0, 0, 0, 0.4));
+    }
   `
 
   static properties = {
     interactive: { type: Boolean, reflect: true },
-    accent: { type: Boolean, reflect: true },
+    accent:      { type: Boolean, reflect: true },
+    raised:      { type: Boolean, reflect: true },
   }
 
   render() {

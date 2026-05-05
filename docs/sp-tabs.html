@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sp-tabs — Component Library</title>
+  <style>
+    body { margin: 0; background: #fafafa; }
+  </style>
+</head>
+<body>
+  <sp-doc id="doc"></sp-doc>
+  <script type="module">
+    import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@master/components/sp-tabs.js'
+    import './components/sp-doc.js'
+    import data from './data/components.js'
+    document.querySelector('#doc').data = data['sp-tabs']
+  </script>
+</body>
+</html>

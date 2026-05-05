@@ -74,6 +74,25 @@ class SpButton extends LitElement {
       color: var(--color-text);
     }
 
+    :host([variant='danger']) button {
+      background: var(--color-error, #b94040);
+      border-color: var(--color-error, #b94040);
+      color: #fff;
+    }
+    :host([variant='danger']) button:hover {
+      background: var(--color-error-hover, #d45050);
+      border-color: var(--color-error-hover, #d45050);
+    }
+
+    :host([variant='dashed']) button {
+      border-style: dashed;
+      color: var(--color-text);
+    }
+    :host([variant='dashed']) button:hover {
+      background: var(--color-bg-subtle);
+      color: var(--color-text);
+    }
+
     /* Sizes */
     :host([size='sm']) button {
       font-size: 0.65rem;

@@ -9,7 +9,7 @@ export default {
         name: 'variant',
         type: 'String',
         default: '—',
-        values: 'default | primary | outline | ghost',
+        values: 'default | primary | outline | ghost | danger | dashed',
         description: 'Visual style of the button.'
       },
       {
@@ -53,7 +53,9 @@ export default {
         code: `<sp-button>Default</sp-button>
 <sp-button variant="primary">Primary</sp-button>
 <sp-button variant="outline">Outline</sp-button>
-<sp-button variant="ghost">Ghost</sp-button>`
+<sp-button variant="ghost">Ghost</sp-button>
+<sp-button variant="danger">Danger</sp-button>
+<sp-button variant="dashed">Dashed</sp-button>`
       },
       {
         label: 'Sizes',
@@ -91,6 +93,13 @@ export default {
         default: 'false',
         values: '—',
         description: 'Renders a 3px color bar across the top of the card using --color-primary (or --sp-card-accent).'
+      },
+      {
+        name: 'raised',
+        type: 'Boolean',
+        default: 'false',
+        values: '—',
+        description: 'Applies a medium drop-shadow to lift the card off the page.'
       }
     ],
     slots: [
@@ -196,6 +205,126 @@ export default {
 <sp-tag color="warning">Warning</sp-tag>
 <sp-tag color="error">Error</sp-tag>
 <sp-tag color="info">Info</sp-tag>`
+      }
+    ]
+  },
+
+  'sp-modal': {
+    name: 'sp-modal',
+    description: 'A fixed-position modal dialog with a backdrop, heading, close button, body slot, and optional footer slot. Opens and closes via the open attribute or show()/close() methods. Escape key support built in.',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-modal.js',
+    attributes: [
+      {
+        name: 'open',
+        type: 'Boolean',
+        default: 'false',
+        values: '—',
+        description: 'Shows the modal when present. Also controlled via show() and close() methods.'
+      },
+      {
+        name: 'heading',
+        type: 'String',
+        default: '—',
+        values: '—',
+        description: 'Text displayed in the modal header. Rendered in uppercase monospace style.'
+      }
+    ],
+    slots: [
+      { name: '(default)', description: 'The main body content of the modal.' },
+      { name: 'footer', description: 'Action buttons or additional content rendered below the body with a top border.' }
+    ],
+    parts: [
+      { name: 'backdrop', description: 'The full-screen semi-transparent overlay behind the dialog.' },
+      { name: 'dialog', description: 'The dialog box itself.' },
+      { name: 'header', description: 'The header row containing the heading and close button.' },
+      { name: 'body', description: 'The scrollable content area.' },
+      { name: 'footer', description: 'The footer area for actions.' }
+    ],
+    examples: [
+      {
+        label: 'Basic modal',
+        code: `<sp-button onclick="document.querySelector('#demo-modal').show()">Open Modal</sp-button>
+<sp-modal id="demo-modal" heading="Confirm Action">
+  <p>Are you sure you want to do this?</p>
+  <div slot="footer" style="display:flex;gap:0.5rem;justify-content:flex-end">
+    <sp-button onclick="document.querySelector('#demo-modal').close()">Cancel</sp-button>
+    <sp-button variant="primary" onclick="document.querySelector('#demo-modal').close()">Confirm</sp-button>
+  </div>
+</sp-modal>`
+      }
+    ]
+  },
+
+  'sp-tabs': {
+    name: 'sp-tabs',
+    description: 'A tab bar that reads data-label from slotted panel elements and manages which panel is visible. Dispatches a tab-change event when the active tab changes.',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-tabs.js',
+    attributes: [
+      {
+        name: 'active',
+        type: 'Number',
+        default: '0',
+        values: '—',
+        description: 'Index of the currently active tab panel (zero-based).'
+      }
+    ],
+    slots: [
+      { name: '(default)', description: 'Panel elements, each with a data-label attribute for the tab button text.' }
+    ],
+    parts: [
+      { name: 'tab-bar', description: 'The container holding all tab buttons.' },
+      { name: 'tab-btn', description: 'Each individual tab button.' },
+      { name: 'panels', description: 'The wrapper around the slotted panel content.' }
+    ],
+    examples: [
+      {
+        label: 'Basic tabs',
+        code: `<sp-tabs>
+  <div data-label="Overview">
+    <p>Overview panel content.</p>
+  </div>
+  <div data-label="Details">
+    <p>Details panel content.</p>
+  </div>
+  <div data-label="History">
+    <p>History panel content.</p>
+  </div>
+</sp-tabs>`
+      }
+    ]
+  },
+
+  'sp-toast': {
+    name: 'sp-toast',
+    description: 'A fixed-position slide-up notification that auto-hides after a configurable duration. Controlled via the show(message, duration) method.',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-toast.js',
+    attributes: [
+      {
+        name: 'visible',
+        type: 'Boolean',
+        default: 'false',
+        values: '—',
+        description: 'Reflects the visible state. Set automatically by show() — do not set manually.'
+      },
+      {
+        name: 'message',
+        type: 'String',
+        default: '—',
+        values: '—',
+        description: 'The text displayed inside the toast. Set automatically by show().'
+      }
+    ],
+    slots: [],
+    parts: [
+      { name: 'toast', description: 'The pill-shaped toast container.' }
+    ],
+    examples: [
+      {
+        label: 'Trigger a toast',
+        code: `<sp-toast id="toast"></sp-toast>
+<sp-button onclick="document.querySelector('#toast').show('Saved!', 2500)">
+  Show Toast
+</sp-button>`
       }
     ]
   },

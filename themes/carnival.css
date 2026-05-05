@@ -2,25 +2,6 @@
 
 /*
   Carnival theme — dark navy base with vivid yellow / amber / pink accents.
-  Converted from Blog/src/css/themes/carnival.css.
-
-  Variable mapping from blog → sp-components:
-    --bg           → --color-bg
-    --bg-surface   → --color-bg-subtle, --color-bg-raised
-    --bg-tag       → --color-bg-overlay, --color-secondary-subtle
-    --text         → --color-text
-    --text-muted   → --color-text-subtle
-    --yellow       → --color-primary (+ scale)
-    --amber        → --color-warning
-    --pink         → --color-secondary (+ scale)
-    --gradient     → --gradient           (added — no sp-components equivalent)
-    --border       → --color-border
-    --filter-border→ --color-border-strong
-    --tag-border   → --color-border-accent (added — no sp-components equivalent)
-    --stroke       → --stroke              (added — no sp-components equivalent)
-    --radius       → --radius-md (6px = 0.375rem, unchanged from default)
-    --font-display → --font-family-display (added — no sp-components equivalent)
-    --font-body    → --font-family-base
 */
 
 [data-theme="carnival"] {
