@@ -243,12 +243,12 @@ export default {
     examples: [
       {
         label: 'Basic modal',
-        code: `<sp-button onclick="document.querySelector('#demo-modal').show()">Open Modal</sp-button>
+        code: `<sp-button onclick="this.getRootNode().querySelector('#demo-modal').show()">Open Modal</sp-button>
 <sp-modal id="demo-modal" heading="Confirm Action">
   <p>Are you sure you want to do this?</p>
   <div slot="footer" style="display:flex;gap:0.5rem;justify-content:flex-end">
-    <sp-button onclick="document.querySelector('#demo-modal').close()">Cancel</sp-button>
-    <sp-button variant="primary" onclick="document.querySelector('#demo-modal').close()">Confirm</sp-button>
+    <sp-button onclick="this.getRootNode().querySelector('#demo-modal').close()">Cancel</sp-button>
+    <sp-button variant="primary" onclick="this.getRootNode().querySelector('#demo-modal').close()">Confirm</sp-button>
   </div>
 </sp-modal>`
       }
