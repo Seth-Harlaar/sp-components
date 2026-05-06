@@ -129,6 +129,73 @@ export default {
   <h3 style="margin:0 0 0.5rem">Interactive card</h3>
   <p style="margin:0;color:#555">Hover to see the lift effect.</p>
 </sp-card>`
+
+  'sp-icon': {
+    name: 'sp-icon',
+    description: 'Renders an SVG icon by name from the built-in icon set. Supports four sizes, an optional tooltip, and a clickable pointer state.',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-icon.js',
+    attributes: [
+      {
+        name: 'name',
+        type: 'String',
+        default: '-',
+        values: 'asana | box | chatgpt | checkmark | circle-dashed | clipboard | clock | code | color-picker | computer-download | crop | dayforce | ddl | figma | garbage | github | key | location | magnifying-glass | pdf | picture | quill | signal | svg-view | v | x',
+        description: 'The icon filename (without .svg) to display.'
+      },
+      {
+        name: 'size',
+        type: 'String',
+        default: 'md',
+        values: 'sm | md | lg | xl',
+        description: 'Icon dimensions: sm = 16px, md = 20px, lg = 24px, xl = 32px. Override further with --sp-icon-size.'
+      },
+      {
+        name: 'tooltip',
+        type: 'String',
+        default: '-',
+        values: '-',
+        description: 'Text shown in a floating tooltip on hover.'
+      },
+      {
+        name: 'clickable',
+        type: 'Boolean',
+        default: 'false',
+        values: '-',
+        description: 'Adds a pointer cursor and a subtle opacity fade on hover. Native click events work on sp-icon without this attribute — clickable is purely visual.'
+      }
+    ],
+    slots: [],
+    parts: [],
+    examples: [
+      {
+        label: 'Basic icons',
+        code: `<sp-icon name="github"></sp-icon>
+<sp-icon name="clock"></sp-icon>
+<sp-icon name="garbage"></sp-icon>
+<sp-icon name="magnifying-glass"></sp-icon>`
+      },
+      {
+        label: 'Sizes',
+        code: `<sp-icon name="github" size="sm"></sp-icon>
+<sp-icon name="github" size="md"></sp-icon>
+<sp-icon name="github" size="lg"></sp-icon>
+<sp-icon name="github" size="xl"></sp-icon>`
+      },
+      {
+        label: 'Clickable with tooltip',
+        code: `<sp-icon name="garbage" clickable tooltip="Delete"></sp-icon>
+<sp-icon name="clipboard" clickable tooltip="Copy to clipboard"></sp-icon>
+<sp-icon name="key" clickable tooltip="Manage keys"></sp-icon>`
+      },
+      {
+        label: 'Click listener',
+        code: `<sp-icon
+  name="garbage"
+  size="lg"
+  clickable
+  tooltip="Delete item"
+  onclick="alert('Deleted!')"
+></sp-icon>`
       }
     ]
   },
