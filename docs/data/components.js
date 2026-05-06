@@ -77,7 +77,7 @@ export default {
 
   'sp-card': {
     name: 'sp-card',
-    description: 'A content container with an optional hover-lift interaction and a colored accent bar at the top.',
+    description: 'A content container with optional hover-lift interaction, a colored accent bar, raised shadow, a strong bordered style, and small/large size variants.',
     import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-card.js',
     attributes: [
       {
@@ -100,6 +100,20 @@ export default {
         default: 'false',
         values: '-',
         description: 'Applies a medium drop-shadow to lift the card off the page.'
+      },
+      {
+        name: 'bordered',
+        type: 'Boolean',
+        default: 'false',
+        values: '-',
+        description: 'Replaces the default subtle border with a thicker, more prominent border using --color-border-strong.'
+      },
+      {
+        name: 'size',
+        type: 'String',
+        default: 'md',
+        values: 'sm | md | lg',
+        description: 'Controls padding and border-radius. sm reduces both; lg increases both.'
       }
     ],
     slots: [
@@ -129,6 +143,28 @@ export default {
   <h3 style="margin:0 0 0.5rem">Interactive card</h3>
   <p style="margin:0;color:#555">Hover to see the lift effect.</p>
 </sp-card>`
+      },
+      {
+        label: 'Bordered',
+        code: `<sp-card bordered>
+  <h3 style="margin:0 0 0.5rem">Bordered card</h3>
+  <p style="margin:0;color:#555">Thicker, more prominent border.</p>
+</sp-card>`
+      },
+      {
+        label: 'Sizes',
+        code: `<sp-card size="sm">
+  <p style="margin:0">Small card — tighter padding.</p>
+</sp-card>
+<sp-card>
+  <p style="margin:0">Medium card — default.</p>
+</sp-card>
+<sp-card size="lg">
+  <p style="margin:0">Large card — more breathing room.</p>
+</sp-card>`
+      }
+    ]
+  },
 
   'sp-icon': {
     name: 'sp-icon',
@@ -202,7 +238,7 @@ export default {
 
   'sp-nav': {
     name: 'sp-nav',
-    description: 'A horizontal navigation bar with brand, links, and actions zones. Supports sticky positioning with a frosted-glass blur effect.',
+    description: 'A horizontal navigation bar with brand, links, and actions zones. Supports sticky positioning with a frosted-glass blur effect. Includes a built-in theme switcher that connects to sp-theme when present on the page.',
     import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-nav.js',
     attributes: [
       {
@@ -222,7 +258,8 @@ export default {
       { name: 'nav', description: 'The outer <nav> element.' },
       { name: 'brand', description: 'The brand wrapper div.' },
       { name: 'links', description: 'The links wrapper div (flex-1, center).' },
-      { name: 'actions', description: 'The actions wrapper div (margin-left: auto).' }
+      { name: 'actions', description: 'The actions wrapper div (margin-left: auto).' },
+      { name: 'theme-switcher', description: 'The theme selector wrapper div.' }
     ],
     examples: [
       {
@@ -398,39 +435,42 @@ export default {
 
   'sp-theme': {
     name: 'sp-theme',
-    description: 'Loads theme CSS tokens into document.head and sets the data-theme attribute on itself. Wrap any content that should be themed - CSS custom properties cascade through Shadow DOM into all nested components.',
+    description: 'Injects theme CSS tokens into <head> and sets data-theme on <html>. Drop it anywhere on the page — no content wrapping required. The active theme persists across page loads via localStorage and can be switched live by sp-nav\'s built-in theme selector or the setTheme(name) method.',
     import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-theme.js',
-    attributes: [
-      {
-        name: 'name',
-        type: 'String',
-        default: 'default',
-        values: 'default | dark | custom',
-        description: 'Sets the active theme. Resolves theme CSS relative to the component\'s CDN URL. "custom" requires a themes/custom.css in the same repo.'
-      }
-    ],
+    attributes: [],
     slots: [
-      { name: '(default)', description: 'All content to be themed. CSS custom properties cascade from sp-theme into all descendant shadow roots.' }
+      { name: '(default)', description: 'Optional. Content placed inside sp-theme renders normally via a slot. Wrapping is not required — theming is applied to the whole page regardless.' }
     ],
     parts: [],
     examples: [
       {
-        label: 'Light theme (default)',
-        code: `<sp-theme name="default">
-  <sp-card accent>
-    <sp-tag color="primary">Light theme</sp-tag>
-    <p style="margin:0.5rem 0 0">Themed card and tag.</p>
-  </sp-card>
-</sp-theme>`
+        label: 'Basic usage (no wrapping needed)',
+        code: `<!-- Drop anywhere on the page — theme applies globally -->
+<sp-theme></sp-theme>
+
+<!-- Components pick up tokens automatically -->
+<sp-card accent>
+  <sp-tag color="primary">Themed</sp-tag>
+  <p style="margin:0.5rem 0 0">Theme tokens cascade to all components.</p>
+</sp-card>`
       },
       {
-        label: 'Dark theme',
-        code: `<sp-theme name="dark">
-  <sp-card accent>
-    <sp-tag color="info">Dark mode</sp-tag>
-    <p style="margin:0.5rem 0 0">Themed card and tag.</p>
-  </sp-card>
-</sp-theme>`
+        label: 'Pair with sp-nav for live switching',
+        code: `<sp-theme></sp-theme>
+<sp-nav sticky>
+  <strong slot="brand">My App</strong>
+</sp-nav>
+<!-- sp-nav's theme selector controls sp-theme automatically -->`
+      },
+      {
+        label: 'Programmatic switch',
+        code: `<sp-theme id="theme"></sp-theme>
+<sp-button onclick="document.querySelector('#theme').setTheme('dark')">
+  Switch to dark
+</sp-button>
+<sp-button onclick="document.querySelector('#theme').setTheme('default')">
+  Switch to light
+</sp-button>`
       }
     ]
   }
