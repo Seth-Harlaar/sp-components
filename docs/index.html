@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Component Library</title>
   <style>
-    body {
-      font-family: system-ui, sans-serif;
+    body { margin: 0; background: #fafafa; font-family: system-ui, sans-serif; }
+    .content {
       max-width: 800px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
+      margin: 3rem auto;
+      padding: 0 1.5rem 4rem;
       color: #1a1a1a;
       line-height: 1.6;
     }
@@ -31,7 +31,6 @@
       font-size: 0.95rem;
     }
     .components-list li:first-child { border-top: 1px solid #f0f0f0; }
-    .empty { color: #999; font-style: italic; }
     .components-list a {
       display: flex;
       align-items: baseline;
@@ -48,23 +47,31 @@
   </style>
 </head>
 <body>
-  <h1>Component Library</h1>
-  <p class="subtitle">Custom HTML components built with <a href="https://lit.dev">Lit</a>, served via CDN.</p>
+  <sp-theme></sp-theme>
+  <sp-nav sticky>
+    <strong slot="brand">sp-components</strong>
+  </sp-nav>
+  <main class="content">
+    <h1>Component Library</h1>
+    <p class="subtitle">Custom HTML components built with <a href="https://lit.dev">Lit</a>, served via CDN.</p>
 
-  <h2>Usage</h2>
-  <p>Import any component directly in your HTML or JS — no npm install required:</p>
-  <pre><code>&lt;!-- HTML --&gt;
+    <h2>Usage</h2>
+    <p>Import any component directly in your HTML or JS — no npm install required:</p>
+    <pre><code>&lt;!-- HTML --&gt;
 &lt;script type="module"&gt;
   import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/component-name.js'
 &lt;/script&gt;</code></pre>
 
-  <pre><code>// JS / ES module
+    <pre><code>// JS / ES module
 import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/component-name.js'</code></pre>
 
-  <h2>Available Components</h2>
-  <ul class="components-list" id="component-list"></ul>
+    <h2>Available Components</h2>
+    <ul class="components-list" id="component-list"></ul>
+  </main>
 
   <script type="module">
+    import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@master/components/sp-theme.js'
+    import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@master/components/sp-nav.js'
     import data from './data/components.js';
     const list = document.getElementById('component-list');
     for (const { name, description } of Object.values(data)) {
@@ -73,6 +80,5 @@ import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components
       list.appendChild(li);
     }
   </script>
-
 </body>
 </html>
