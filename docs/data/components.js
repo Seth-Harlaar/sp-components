@@ -3,7 +3,7 @@ export default {
   'sp-button': {
     name: 'sp-button',
     description: 'A styled button with multiple visual variants, sizes, and states. Self-registers as a custom element - drop it anywhere after importing.',
-    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-button.js',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-button.js',
     attributes: [
       {
         name: 'variant',
@@ -78,7 +78,7 @@ export default {
   'sp-card': {
     name: 'sp-card',
     description: 'A content container with optional hover-lift interaction, a colored accent bar, raised shadow, a strong bordered style, and small/large size variants.',
-    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-card.js',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-card.js',
     attributes: [
       {
         name: 'interactive',
@@ -169,7 +169,7 @@ export default {
   'sp-icon': {
     name: 'sp-icon',
     description: 'Renders an SVG icon by name from the built-in icon set. Supports four sizes, an optional tooltip, and a clickable pointer state.',
-    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-icon.js',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-icon.js',
     attributes: [
       {
         name: 'name',
@@ -239,7 +239,7 @@ export default {
   'sp-nav': {
     name: 'sp-nav',
     description: 'A horizontal navigation bar with brand, links, and actions zones. Supports sticky positioning with a frosted-glass blur effect. Includes a built-in theme switcher that connects to sp-theme when present on the page.',
-    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-nav.js',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-nav.js',
     attributes: [
       {
         name: 'sticky',
@@ -284,7 +284,7 @@ export default {
   'sp-tag': {
     name: 'sp-tag',
     description: 'A compact pill-shaped label for status, categories, or metadata. Supports five semantic color variants.',
-    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-tag.js',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-tag.js',
     attributes: [
       {
         name: 'color',
@@ -316,7 +316,7 @@ export default {
   'sp-modal': {
     name: 'sp-modal',
     description: 'A fixed-position modal dialog with a backdrop, heading, close button, body slot, and optional footer slot. Opens and closes via the open attribute or show()/close() methods. Escape key support built in.',
-    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-modal.js',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-modal.js',
     attributes: [
       {
         name: 'open',
@@ -362,7 +362,7 @@ export default {
   'sp-tabs': {
     name: 'sp-tabs',
     description: 'A tab bar that reads data-label from slotted panel elements and manages which panel is visible. Dispatches a tab-change event when the active tab changes.',
-    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-tabs.js',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-tabs.js',
     attributes: [
       {
         name: 'active',
@@ -401,7 +401,7 @@ export default {
   'sp-toast': {
     name: 'sp-toast',
     description: 'A fixed-position slide-up notification that auto-hides after a configurable duration. Controlled via the show(message, duration) method.',
-    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-toast.js',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-toast.js',
     attributes: [
       {
         name: 'visible',
@@ -436,7 +436,7 @@ export default {
   'sp-theme': {
     name: 'sp-theme',
     description: 'Injects theme CSS tokens into <head> and sets data-theme on <html>. Drop it anywhere on the page — no content wrapping required. The active theme persists across page loads via localStorage and can be switched live by sp-nav\'s built-in theme selector or the setTheme(name) method.',
-    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-theme.js',
+    import: 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-theme.js',
     attributes: [],
     slots: [
       { name: '(default)', description: 'Optional. Content placed inside sp-theme renders normally via a slot. Wrapping is not required — theming is applied to the whole page regardless.' }
