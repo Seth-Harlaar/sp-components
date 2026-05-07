@@ -6,7 +6,7 @@ Custom HTML web components built with [Lit](https://lit.dev), hosted on GitHub a
 
 ```html
 <script type="module">
-  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/component-name.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/component-name.js'
 </script>
 ```
 
@@ -26,11 +26,11 @@ Replace `Seth-Harlaar` and `sp-components` with your GitHub username and repo na
 
 ```html
 <script type="module">
-  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-theme.js'
-  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-nav.js'
-  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-card.js'
-  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-button.js'
-  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-tag.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-theme.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-nav.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-card.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-button.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-tag.js'
 </script>
 
 <sp-theme name="dark">
@@ -57,8 +57,8 @@ Theming is built on CSS custom properties (variables) that cascade through Shado
 
 ```html
 <script type="module">
-  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/sp-theme.js'
-  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components@latest/components/my-button.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/sp-theme.js'
+  import 'https://cdn.jsdelivr.net/gh/Seth-Harlaar/sp-components/components/my-button.js'
 </script>
 
 <sp-theme name="dark">
