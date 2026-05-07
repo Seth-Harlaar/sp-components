@@ -13,6 +13,7 @@ class SpCard extends LitElement {
       padding: var(--space-4, 1rem) var(--space-5, 1.25rem);
       overflow: hidden;
       position: relative;
+      box-sizing: border-box;
     }
 
     :host([accent]) .card::before {
